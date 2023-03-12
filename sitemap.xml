@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://virajsazzala.xyz/</loc>
+        <loc>https://virajsazzala.github.io/</loc>
     </url>
     <url>
-        <loc>https://virajsazzala.xyz/blog/</loc>
+        <loc>https://virajsazzala.github.io/blog/</loc>
     </url>
     <url>
-        <loc>https://virajsazzala.xyz/blog/experience-with-linux/</loc>
+        <loc>https://virajsazzala.github.io/blog/experience-with-linux/</loc>
         <lastmod>2023-02-06</lastmod>
     </url>
     <url>
-        <loc>https://virajsazzala.xyz/blog/getting-started-with-webdev/</loc>
+        <loc>https://virajsazzala.github.io/blog/getting-started-with-webdev/</loc>
         <lastmod>2023-02-06</lastmod>
     </url>
     <url>
-        <loc>https://virajsazzala.xyz/blog/why-i-love-the-internet/</loc>
+        <loc>https://virajsazzala.github.io/blog/why-i-love-the-internet/</loc>
         <lastmod>2023-02-06</lastmod>
     </url>
     <url>
-        <loc>https://virajsazzala.xyz/projects/</loc>
+        <loc>https://virajsazzala.github.io/projects/</loc>
     </url>
 </urlset>
