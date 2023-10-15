@@ -7,7 +7,7 @@
     <updated>2023-10-15T00:00:00+00:00</updated>
     <id>https://virajsazzala.dev/atom.xml</id>
     <entry xml:lang="en">
-        <title>Using Zola to Keep It Quick, Easy, and Lightweight!</title>
+        <title>A Quick Guide to Zola</title>
         <published>2023-10-15T00:00:00+00:00</published>
         <updated>2023-10-15T00:00:00+00:00</updated>
         <author>
@@ -21,7 +21,21 @@
         
     </entry>
     <entry xml:lang="en">
-        <title>Cron Jobs: A gift for the lazy!</title>
+        <title>Getting started w&#x2F; Open Source</title>
+        <published>2023-09-29T00:00:00+00:00</published>
+        <updated>2023-09-29T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://virajsazzala.dev/open-source-contributions/" type="text/html"/>
+        <id>https://virajsazzala.dev/open-source-contributions/</id>
+        
+        <summary type="html">&lt;p&gt;Being a computer science enthusiast, I often wondered about the inner workings of the closed-off software programs that we use daily. That curiosity eventually led me to the realm of open source and Free and Open Source Software (FOSS). While using open source software, I developed a desire to contribute and make these projects better, but initially, I had no idea where to start. To simplify this journey, I&#x27;ve created a comprehensive guide to open source software, aimed at helping those who want to dive into this exciting world.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Cron Jobs: A Gift for the Lazy!</title>
         <published>2023-01-11T00:00:00+00:00</published>
         <updated>2023-01-11T00:00:00+00:00</updated>
         <author>

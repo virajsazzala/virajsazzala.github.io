@@ -1,9 +1,9 @@
 +++
-title = "Using Zola to Keep It Quick, Easy, and Lightweight!"
+title = "A Quick Guide to Zola"
 date = 2023-10-15
 
 [taxonomies]
-tags = ["zola", "guide", "web"]
+tags = ["guide", "web"]
 +++
 
 Many people have reservations about using Static Site Generators and prefer building their websites manually. I used to share this perspective, but I've come to realize that it's not always the best choice. Often, individuals tend to complicate things by using complex technologies like React and intricate backend systems, which can lead to unnecessary complexity. Here's why.

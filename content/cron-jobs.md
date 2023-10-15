@@ -1,5 +1,5 @@
 +++
-title = "Cron Jobs: A gift for the lazy!"
+title = "Cron Jobs: A Gift for the Lazy!"
 date = 2023-01-11
 
 [taxonomies]
