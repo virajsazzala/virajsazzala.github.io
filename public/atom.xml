@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Viraj Sazzala&#x27;s Blog</title>
+    <link href="https://virajsazzala.dev/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://virajsazzala.dev"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-10-15T00:00:00+00:00</updated>
+    <id>https://virajsazzala.dev/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Using Zola to Keep It Quick, Easy, and Lightweight!</title>
+        <published>2023-10-15T00:00:00+00:00</published>
+        <updated>2023-10-15T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://virajsazzala.dev/a-guide-to-zola/" type="text/html"/>
+        <id>https://virajsazzala.dev/a-guide-to-zola/</id>
+        
+        <summary type="html">&lt;p&gt;Many people have reservations about using Static Site Generators and prefer building their websites manually. I used to share this perspective, but I&#x27;ve come to realize that it&#x27;s not always the best choice. Often, individuals tend to complicate things by using complex technologies like React and intricate backend systems, which can lead to unnecessary complexity. Here&#x27;s why.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Cron Jobs: A gift for the lazy!</title>
+        <published>2023-01-11T00:00:00+00:00</published>
+        <updated>2023-01-11T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://virajsazzala.dev/cron-jobs/" type="text/html"/>
+        <id>https://virajsazzala.dev/cron-jobs/</id>
+        
+        <summary type="html">&lt;p&gt;Cron jobs allow you to schedule tasks to run automatically at a specified time and date. They are commonly used for running periodic jobs like backups, sending emails, data aggregation, etc. &lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

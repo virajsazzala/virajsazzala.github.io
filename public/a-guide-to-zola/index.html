@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Viraj Sazzala&#x27;s Blog</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://virajsazzala.dev/style.css">
+    <link rel="stylesheet" href="https://virajsazzala.dev/color/green.css">
+
+        <link rel="stylesheet" href="https://virajsazzala.dev/color/background_auto.css">
+    
+    <link rel="stylesheet" href="https://virajsazzala.dev/font-hack.css">
+
+            
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="https://virajsazzala.dev/atom.xml">
+    
+    </head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://virajsazzala.dev" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            Viraj Sazzala
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://virajsazzala.dev">blog</a></li>
+            
+                <li><a href="https://virajsazzala.dev/tags">tags</a></li>
+            
+                <li><a href="https://virajsazzala.dev/archive">archive</a></li>
+            
+                <li><a href="https://virajsazzala.dev/about">about</a></li>
+            
+                <li><a href="https://github.com/virajsazzala" target="_blank" rel="noopener noreferrer">github</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+    <div class="post">
+        
+    <h1 class="post-title"><a href="https://virajsazzala.dev/a-guide-to-zola/">Using Zola to Keep It Quick, Easy, and Lightweight!</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2023-10-15
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://virajsazzala.dev/tags/guide/">#guide</a>&nbsp;
+                <a class="post-tag" href="https://virajsazzala.dev/tags/web/">#web</a>&nbsp;
+                <a class="post-tag" href="https://virajsazzala.dev/tags/zola/">#zola</a></span>
+    
+
+        
+        <div class="post-content">
+            <p>Many people have reservations about using Static Site Generators and prefer building their websites manually. I used to share this perspective, but I've come to realize that it's not always the best choice. Often, individuals tend to complicate things by using complex technologies like React and intricate backend systems, which can lead to unnecessary complexity. Here's why.</p>
+<span id="continue-reading"></span><h1 id="why-use-zola-over-building-your-own-site">Why Use Zola Over Building Your Own Site</h1>
+<ul>
+<li>
+<p><strong>Saves time</strong> - Zola provides a complete static site generator out of the box, saving you the effort of building all the core functionality from scratch. For example, here's how you can get started with Zola:</p>
+<pre data-lang="bash" style="background-color:#151515;color:#e8e8d3;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#ffb964;">cargo</span><span> install zola
+</span><span style="color:#ffb964;">zola</span><span> init my_website
+</span><span>cd my_website
+</span><span style="color:#ffb964;">zola</span><span> serve
+</span></code></pre>
+</li>
+<li>
+<p><strong>Focus on content</strong> - With Zola, you can direct your energy towards creating content instead of developing a generator. Zola handles tasks like converting Markdown to HTML, managing themes, and more. For instance, creating a new content page in Zola is as simple as writing a Markdown file:</p>
+<pre data-lang="markdown" style="background-color:#151515;color:#e8e8d3;" class="language-markdown "><code class="language-markdown" data-lang="markdown"><span>+++    
+</span><span>title = &quot;My New Page&quot;    
+</span><span>date = 2023-10-15
+</span><span>+++
+</span><span>
+</span><span>Your content goes here.
+</span></code></pre>
+</li>
+<li>
+<p><strong>Built-in features</strong> - Zola comes equipped with a variety of useful features such as native Markdown support, theme integration, Sass/SCSS processing, and more. Here's how you can include a theme in your Zola project:</p>
+<pre data-lang="toml" style="background-color:#151515;color:#e8e8d3;" class="language-toml "><code class="language-toml" data-lang="toml"><span>[</span><span style="color:#ffb964;">extra</span><span>]
+</span><span style="color:#ffb964;">theme </span><span>= </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">my-awesome-theme</span><span style="color:#556633;">&quot;
+</span></code></pre>
+</li>
+<li>
+<p><strong>Performance</strong> - Zola generates incredibly fast static sites, as all HTML pages are prebuilt. No server-side processing is necessary. </p>
+</li>
+<li>
+<p><strong>Security</strong> - Static sites, like those generated by Zola, are inherently more secure since there is no server-side code to exploit.</p>
+</li>
+<li>
+<p><strong>Easier deployment</strong> - Deploying Zola sites is a breeze with popular services like GitHub Pages and Netlify. Here's how you can deploy your Zola site to GitHub Pages:</p>
+<pre data-lang="bash" style="background-color:#151515;color:#e8e8d3;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#ffb964;">zola</span><span> build
+</span><span style="color:#ffb964;">git</span><span> checkout</span><span style="color:#ffb964;"> --orphan</span><span> gh-pages
+</span><span style="color:#ffb964;">git</span><span> add .
+</span><span style="color:#ffb964;">git</span><span> commit</span><span style="color:#ffb964;"> -m </span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">Initial GitHub Pages commit</span><span style="color:#556633;">&quot;
+</span><span style="color:#ffb964;">git</span><span> push origin gh-pages
+</span></code></pre>
+</li>
+<li>
+<p><strong>Customizable</strong> - Extend Zola's functionality by using plugins or the Rust API. You can even add your own logic to meet unique requirements. Here's an example of creating a custom Zola plugin:</p>
+<pre data-lang="rust" style="background-color:#151515;color:#e8e8d3;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#888888;">// zola-plugin.rs
+</span><span>extern crate zola;
+</span><span>
+</span><span style="color:#8fbfdc;">fn </span><span style="color:#fad07a;">my_custom_plugin</span><span>(</span><span style="color:#ffb964;">context</span><span>: &amp;</span><span style="color:#8fbfdc;">mut </span><span>zola::Context) {
+</span><span>    </span><span style="color:#888888;">// Your custom logic here
+</span><span>}
+</span><span>
+</span><span>zola::register_plugin!(</span><span style="color:#556633;">&quot;</span><span style="color:#99ad6a;">my_custom_plugin</span><span style="color:#556633;">&quot;</span><span>, my_custom_plugin);
+</span></code></pre>
+</li>
+<li>
+<p><strong>Open source</strong> - Zola is open-source software with a thriving community. You can contribute to its development, share your insights, and collaborate with like-minded developers.</p>
+</li>
+</ul>
+<p>For most use cases, using an existing mature generator like Zola will be faster and more productive than building your own. But you can still customize and extend it!</p>
+
+        </div>
+
+        
+        <div class="pagination">
+            <div class="pagination__title">
+                <span class="pagination__title-h">Thanks for reading! Read other posts?</span>
+                <hr />
+            </div>
+            <div class="pagination__buttons">
+                    <span class="button previous">
+                        <a href="https://virajsazzala.dev/cron-jobs/">
+                            <span class="button__icon">←</span>&nbsp;
+                            <span class="button__text">Cron Jobs: A gift for the lazy!</span>
+                        </a>
+                    </span>
+                
+                </div>
+        </div>
+    
+    </div>
+
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright copyright--user">&#169; 2023 SNG Viraj Reddy. All Rights Reserved.</div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>
