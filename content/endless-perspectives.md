@@ -6,7 +6,7 @@ date = 2023-11-12
 tags = ["philosophy", "non-tech"]
 +++
 
-In a world teeming with billions, the notion that each person sees just one version of you doesn’t quite fit, does it? Think about your day: encounters with countless individuals, from the bus driver who drives you to the friends you cherish, each painting a different picture of who they believe you are. It’s as if everyone carries their own unique pair of glasses, shaping their distinct viewpoint of you.
+In a world teeming with billions, the notion that each person sees just one version of you doesn’t quite fit, does it? Think about your day: encounters with countless individuals, from the bus driver, to the friends you cherish, each painting a different picture of who they believe you are. It’s as if everyone carries their own unique pair of glasses, shaping their distinct viewpoint of you.
 
 <!-- more -->
 
