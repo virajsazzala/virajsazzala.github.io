@@ -6,7 +6,7 @@ path = "about"
 # I'm SNG Viraj Reddy
 
 ## General
-- I'm 19yrs old.
+- I'm 20yrs old.
 - I'm an Engineering student, currently pursuing Artificial Intelligence and Data Science as my major.
 - I'm also Interested in History, Philosophy, Physics and Electronics.
 - I like watching sci-fi and horror content, in addition to documentaries and video games. 

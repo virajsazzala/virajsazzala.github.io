@@ -53,12 +53,13 @@ copyright_html = "&#169; 2023 SNG Viraj Reddy. All Rights Reserved."
 menu_items = [
     # each of these is optional, name and url are required
     # $BASE_URL is going to be substituted by base_url from configuration
-    {name = "blog", url = "$BASE_URL"},
+    # {name = "blog", url = "$BASE_URL"},
 
     # tags should only be enabled if you have "tags" taxonomy
     # see documentation below for more details
-    {name = "tags", url = "$BASE_URL/tags"},
     {name = "archive", url = "$BASE_URL/archive"},
+    {name = "projects", url = "$BASE_URL/projects"},
+    {name = "tags", url = "$BASE_URL/tags"},
     {name = "about", url = "$BASE_URL/about"},
 
     # set newtab to true to make the link open in new tab
