@@ -4,10 +4,6 @@
         <loc>https://virajsazzala.dev/</loc>
     </url>
     <url>
-        <loc>https://virajsazzala.dev/a-guide-to-zola/</loc>
-        <lastmod>2023-10-15</lastmod>
-    </url>
-    <url>
         <loc>https://virajsazzala.dev/about/</loc>
     </url>
     <url>
@@ -22,23 +18,23 @@
         <lastmod>2023-11-12</lastmod>
     </url>
     <url>
-        <loc>https://virajsazzala.dev/open-source-contributions/</loc>
-        <lastmod>2023-09-29</lastmod>
+        <loc>https://virajsazzala.dev/entries/</loc>
+    </url>
+    <url>
+        <loc>https://virajsazzala.dev/entry-14-12-23/</loc>
+        <lastmod>2023-12-14</lastmod>
     </url>
     <url>
         <loc>https://virajsazzala.dev/page/1/</loc>
-    </url>
-    <url>
-        <loc>https://virajsazzala.dev/page/2/</loc>
-    </url>
-    <url>
-        <loc>https://virajsazzala.dev/projects/</loc>
     </url>
     <url>
         <loc>https://virajsazzala.dev/tags/</loc>
     </url>
     <url>
         <loc>https://virajsazzala.dev/tags/automate/</loc>
+    </url>
+    <url>
+        <loc>https://virajsazzala.dev/tags/entry/</loc>
     </url>
     <url>
         <loc>https://virajsazzala.dev/tags/guide/</loc>
@@ -50,12 +46,6 @@
         <loc>https://virajsazzala.dev/tags/non-tech/</loc>
     </url>
     <url>
-        <loc>https://virajsazzala.dev/tags/open-source/</loc>
-    </url>
-    <url>
         <loc>https://virajsazzala.dev/tags/philosophy/</loc>
-    </url>
-    <url>
-        <loc>https://virajsazzala.dev/tags/web/</loc>
     </url>
 </urlset>

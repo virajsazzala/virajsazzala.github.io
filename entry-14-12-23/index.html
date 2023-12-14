@@ -62,59 +62,26 @@
     <div class="post">
         
             
-    <h1 class="post-title"><a href="https://virajsazzala.dev/cron-jobs/">Cron Jobs: A Gift for the Lazy!</a></h1>
     <div class="post-meta-inline">
         
     <span class="post-date">
-            2023-01-11
+            2023-12-14
         </span>
 
     </div>
-    
-        <span class="post-tags-inline">
-                :: tags: <a class="post-tag" href="https://virajsazzala.dev/tags/automate/">#automate</a>&nbsp;<a class="post-tag" href="https://virajsazzala.dev/tags/guide/">#guide</a>&nbsp;<a class="post-tag" href="https://virajsazzala.dev/tags/linux/">#linux</a></span>
-    
 
         
         
         <div class="post-content">
-            <p>Cron jobs allow you to schedule tasks to run automatically at a specified time and date. They are commonly used for running periodic jobs like backups, sending emails, data aggregation, etc. </p>
-<span id="continue-reading"></span><h2 id="how-cron-jobs-work">How Cron Jobs Work</h2>
-<p>Cron jobs work by running cron (the scheduler) as a daemon process that executes commands at the specified schedule. </p>
-<p>To schedule a cron job, you edit the crontab file (a config file that tells cron which jobs to run) and specify:</p>
-<ul>
-<li>The command to execute</li>
-<li>The schedule for the command</li>
-</ul>
-<p>For example:</p>
-<pre style="background-color:#151515;color:#e8e8d3;"><code><span># Run backup at 2am every day
-</span><span>0 3 * * * ./backup.sh
-</span></code></pre>
-<p>This runs <code>backup.sh</code> at 3 AM every day.</p>
-<p>You can specify a wide variety of schedules using the 5 time/date fields:</p>
-<pre style="background-color:#151515;color:#e8e8d3;"><code><span>.---------------- minute (0 - 59) 
-</span><span>|  .------------- hour (0 - 23)
-</span><span>|  |  .---------- day of month (1 - 31)  
-</span><span>|  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
-</span><span>|  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7)
-</span><span>|  |  |  |  |
-</span><span>*  *  *  *  * command to be executed
-</span></code></pre>
-<h2 id="cron-job-examples">Cron Job Examples</h2>
-<p>Some examples of cron schedules:</p>
-<ul>
-<li><code>0 12 * * *</code> - run at 12 PM every day </li>
-<li><code>*/5 * * * *</code> - run every 5 minutes</li>
-<li><code>0 0 1 * *</code> - run at 00:00 on 1st of every month</li>
-</ul>
-<h2 id="managing-cron-jobs">Managing Cron Jobs</h2>
-<p>There are a few key commands for managing cron jobs:</p>
-<ul>
-<li><code>crontab -e</code> - Edit the crontab file </li>
-<li><code>crontab -l</code> - List cron jobs</li>
-<li><code>service cron reload</code> - Reload cron daemon after editing crontab</li>
-</ul>
-<p>And that's the basics of how to use cron jobs! They provide a handy way to run periodic tasks.</p>
+            <span id="continue-reading"></span>
+<p>Today, I had my Machine Learning Lab finals, I did pretty good actually. I was asked to write a KNN model and it was pretty simple. I pretty much forgot the classname for KNN in scikit-learn, but I figured it out using some python magic. How exactly? It's a story for another time ig.</p>
+<p>After coming back from uni, I had to attend an online test for a skill development program by my uni, it's on digital engineering. I took the test, and it was pretty easy. After which, I spent a few mins playing with the chatGPT mobile application. It was actually nice, I really enjoyed having a conversation, has pretty good speech recognition ngl. I ended up talking to it about some astrophysics + machine learning related stuff.</p>
+<p>Also, I've actually decided a few days ago that I wanted to maintain an online journal. So, I wanted to change the site a bit to fit in the journal entries too. Since, I didn't know how to do it (as I'm using a theme right now), I decided to do it after my final labs end. So, since my final labs ended today, I started working on it.</p>
+<p>It was pretty fun actually, I never messed around much with zola and it's themes, never went into macros, and stuff like that. But, today, I was trying to look for some docs, so I can add an additional section for entries. I got too lazy to find resources, so I decided to figure it out, by myself.</p>
+<p>So, I messed around a bit, trying to understand the exisiting <code>templates/</code> directory. After some experimentation, I figured it out and eventually I got a grasp of the templating syntax too. Then, I realised that I can slightly change the exisiting macros and add a few new ones to add the section of entries. I also wanted my individual entry pages to not have titles, and such, for that I had to play around with the code a bit more. </p>
+<p>Then, I finished the entries section and pushed the code.</p>
+<p>Tomorrow, I have to make a list of assignments to submit and keep track of finals dates. In addition to that, I wanted to work on a new project, but I'll have to look into it a bit.</p>
+<p>That's all, night night!</p>
 
         </div>
 
@@ -125,13 +92,13 @@
                 <hr />
             </div>
             <div class="pagination__buttons">
-                
-                    <span class="button next">
+                    <span class="button previous">
                         <a href="https://virajsazzala.dev/endless-perspectives/">
-                            <span class="button__text">Endless Perspectives</span>&nbsp;
-                            <span class="button__icon">→</span>
+                            <span class="button__icon">←</span>&nbsp;
+                            <span class="button__text">Endless Perspectives</span>
                         </a>
                     </span>
+                
                 </div>
         </div>
     
