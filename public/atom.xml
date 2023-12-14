@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Viraj Sazzala&#x27;s Blog</title>
+    <link href="https://virajsazzala.dev/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://virajsazzala.dev"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-12-14T00:00:00+00:00</updated>
+    <id>https://virajsazzala.dev/atom.xml</id>
+    <entry xml:lang="en">
+        <title></title>
+        <published>2023-12-14T00:00:00+00:00</published>
+        <updated>2023-12-14T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://virajsazzala.dev/entry-14-12-23/" type="text/html"/>
+        <id>https://virajsazzala.dev/entry-14-12-23/</id>
+        
+        <content type="html">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;
+&lt;p&gt;Today, I had my Machine Learning Lab finals, I did pretty good actually. I was asked to write a KNN model and it was pretty simple. I pretty much forgot the classname for KNN in scikit-learn, but I figured it out using some python magic. How exactly? It&#x27;s a story for another time ig.&lt;&#x2F;p&gt;
+&lt;p&gt;After coming back from uni, I had to attend an online test for a skill development program by my uni, it&#x27;s on digital engineering. I took the test, and it was pretty easy. After which, I spent a few mins playing with the chatGPT mobile application. It was actually nice, I really enjoyed having a conversation, has pretty good speech recognition ngl. I ended up talking to it about some astrophysics + machine learning related stuff.&lt;&#x2F;p&gt;
+&lt;p&gt;Also, I&#x27;ve actually decided a few days ago that I wanted to maintain an online journal. So, I wanted to change the site a bit to fit in the journal entries too. Since, I didn&#x27;t know how to do it (as I&#x27;m using a theme right now), I decided to do it after my final labs end. So, since my final labs ended today, I started working on it.&lt;&#x2F;p&gt;
+&lt;p&gt;It was pretty fun actually, I never messed around much with zola and it&#x27;s themes, never went into macros, and stuff like that. But, today, I was trying to look for some docs, so I can add an additional section for entries. I got too lazy to find resources, so I decided to figure it out, by myself.&lt;&#x2F;p&gt;
+&lt;p&gt;So, I messed around a bit, trying to understand the exisiting &lt;code&gt;templates&#x2F;&lt;&#x2F;code&gt; directory. After some experimentation, I figured it out and eventually I got a grasp of the templating syntax too. Then, I realised that I can slightly change the exisiting macros and add a few new ones to add the section of entries. I also wanted my individual entry pages to not have titles, and such, for that I had to play around with the code a bit more. &lt;&#x2F;p&gt;
+&lt;p&gt;Then, I finished the entries section and pushed the code.&lt;&#x2F;p&gt;
+&lt;p&gt;Tomorrow, I have to make a list of assignments to submit and keep track of finals dates. In addition to that, I wanted to work on a new project, but I&#x27;ll have to look into it a bit.&lt;&#x2F;p&gt;
+&lt;p&gt;That&#x27;s all, night night!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Endless Perspectives</title>
+        <published>2023-11-12T00:00:00+00:00</published>
+        <updated>2023-11-12T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://virajsazzala.dev/endless-perspectives/" type="text/html"/>
+        <id>https://virajsazzala.dev/endless-perspectives/</id>
+        
+        <summary type="html">&lt;p&gt;In a world teeming with billions, the notion that each person sees just one version of you doesn’t quite fit, does it? Think about your day: encounters with countless individuals, from the bus driver, to the friends you cherish, each painting a different picture of who they believe you are. It’s as if everyone carries their own unique pair of glasses, shaping their distinct viewpoint of you.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Cron Jobs: A Gift for the Lazy!</title>
+        <published>2023-01-11T00:00:00+00:00</published>
+        <updated>2023-01-11T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://virajsazzala.dev/cron-jobs/" type="text/html"/>
+        <id>https://virajsazzala.dev/cron-jobs/</id>
+        
+        <summary type="html">&lt;p&gt;Cron jobs allow you to schedule tasks to run automatically at a specified time and date. They are commonly used for running periodic jobs like backups, sending emails, data aggregation, etc. &lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>
