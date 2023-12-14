@@ -10,6 +10,7 @@
 
         <ul>
             {% for term in terms %}
+            {% if term.name == "entry" %}{% continue %}{% endif %}
             <li class="tag-list">
                 <a href="{{ term.permalink | safe }}">
                     {{ term.name }} ({{ term.pages | length }} post{{ term.pages | length | pluralize }})
