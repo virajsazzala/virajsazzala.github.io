@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+
+{%- block title -%}
+{{ title_macros::title(page_title=page.title, main_title=config.title) }}
+{%- endblock -%}
+
+{% block content %}
+    <div class="post">
+        <h1 class="post-title">{{ page.title }}</h1>
+        {% set tags = get_taxonomy(kind="tags") %}
+        {% set entries = tags.items | filter(attribute="name", value="entry")%}
+        {% if entries %}
+            {{ post_macros::list_entries(pages=entries[0].pages) }}
+        {% else %}
+            <p>No entries found.</p>
+        {% endif %}
+    </div>
+{% endblock content %}

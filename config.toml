@@ -43,7 +43,7 @@ logo_text = "Viraj Sazzala"
 # Author name: when specified, modifies the default
 # copyright text. Apart from author, it will
 # contain current year and a link to the theme.
-#author = "SNG Viraj Reddy"
+# author = "SNG Viraj Reddy"
 
 # Copyright text in HTML format. If specified,
 # entirely replaces default copyright and author.
@@ -58,7 +58,7 @@ menu_items = [
     # tags should only be enabled if you have "tags" taxonomy
     # see documentation below for more details
     {name = "archive", url = "$BASE_URL/archive"},
-    {name = "projects", url = "$BASE_URL/projects"},
+    {name = "entries", url = "$BASE_URL/entries"},
     {name = "tags", url = "$BASE_URL/tags"},
     {name = "about", url = "$BASE_URL/about"},
 
