@@ -69,10 +69,12 @@
             {% endif -%}
 
             {%- for page in show_pages %}
-                <div class="post on-list">
-                    {{ post_macros::header(page=page) }}
-                    {{ post_macros::content(page=page, summary=true) }}
-                </div>
+                {% if page.title %}
+                    <div class="post on-list">
+                        {{ post_macros::header(page=page) }}
+                        {{ post_macros::content(page=page, summary=true) }}
+                    </div>
+                {% endif %}
             {% endfor -%}
             <div class="pagination">
                 <div class="pagination__buttons">

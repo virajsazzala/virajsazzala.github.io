@@ -58,14 +58,17 @@
 
 
 {% macro header(page) %}
-    {% if page.title %}
-        <h1 class="post-title"><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h1>
-    {% endif %}
-        <div class="post-meta-inline">
-            {{ post_macros::date(page=page) }}
-        </div>
-
+    <h1 class="post-title"><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h1>
+    <div class="post-meta-inline">
+        {{ post_macros::date(page=page) }}
+    </div>
     {{ post_macros::tags(page=page) }}
+{% endmacro header %}
+
+{% macro entry_header(page) %}
+    <div class="post-meta-inline">
+        {{ post_macros::date(page=page) }}
+    </div>
 {% endmacro header %}
 
 
@@ -98,7 +101,6 @@
             <a href="{{ page.permalink | safe }}">
                 <span class="post-date">{{ page.date }}</span>
             <span class="post-list-title"></span></a>
-            {{ post_macros::tags(page=page, short=true) }}
         </li>
     {% endfor -%}
     </ul>
