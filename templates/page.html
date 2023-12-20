@@ -1,17 +1,42 @@
-{% extends "index.html" %}
-
-{%- block title -%}
-{{ title_macros::title(page_title=page.title, main_title=config.title) }}
-{%- endblock -%}
+{% extends "base.html" %}
 
 {% block content %}
-    <div class="post">
-        {% if page.title %}
-            {{ post_macros::header(page=page) }}
-        {% else %}
-            {{ post_macros::entry_header(page=page) }}
-        {% endif %}
-        {{ post_macros::content(page=page, summary=false) }}
-        {{ post_macros::earlier_later(page=page) }}
-    </div>
+<h1>{{ page.title }}</h1>
+
+{% if page.toc and page.extra.toc %}
+<h2>Table of contents</h2>
+<ul>
+{% for h1 in page.toc %}
+  <li>
+  <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
+  {% if h1.children %}
+    <ul>
+      {% for h2 in h1.children %}
+        <li>
+        <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
+          <ul>
+          {% for h3 in h2.children %}
+            <li>
+            <a href="{{ h3.permalink | safe }}">{{ h3.title }}</a>
+            </li>
+          {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  </li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{{ page.content | safe }}
+
+<p class="tagsData">
+{% if page.taxonomies.tags %}
+{% for tag in page.taxonomies.tags %}
+<a href="/tags/{{ tag | slugify }}">&#47;{{ tag }}&#47;</a>
+{% endfor %}
+{% endif %}
+</p>
 {% endblock content %}
