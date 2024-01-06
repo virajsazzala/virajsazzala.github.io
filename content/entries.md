@@ -1,6 +1,6 @@
 +++
 title = "Personal journal"
-date = 2019-10-05
+date = 2023-12-20
 draft = false
 +++
 
