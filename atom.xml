@@ -5,8 +5,47 @@
     <link href="https://virajsazzala.dev/atom.xml" rel="self" type="application/atom+xml"/>
     <link href="https://virajsazzala.dev"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2023-11-12T00:00:00+00:00</updated>
+    <updated>2023-12-20T00:00:00+00:00</updated>
     <id>https://virajsazzala.dev/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Devlogs</title>
+        <published>2023-12-20T00:00:00+00:00</published>
+        <updated>2023-12-20T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://virajsazzala.dev/devlogs/" type="text/html"/>
+        <id>https://virajsazzala.dev/devlogs/</id>
+        
+        <content type="html">&lt;h2 id=&quot;2024-01-06&quot;&gt;2024-01-06&lt;&#x2F;h2&gt;
+&lt;p&gt;Today, I decided to write to work a bit on the world. So, I divided my world into sections, and each section has it’s own entities, and when the player enters a section, the camera move and shows that individual section. It feels much better than making the camera follow the player. Now, I’ll add entities to the section, so time to make more sprites ig. Also, for now, I named the game “Trapped”.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2024-01-05&quot;&gt;2024-01-05&lt;&#x2F;h2&gt;
+&lt;p&gt;I wrote some basic scripts, like one that generates mazes given a maze blueprint as a file input, a simple platformer game, etc.. But, I’ve been getting a bit bored, and I always had this idea to make my own game, something like &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Faith:_The_Unholy_Trinity&quot;&gt;Faith: The unholy trinity&lt;&#x2F;a&gt;. I love the 8-bit style graphics and the eerie vibe. So, I decided to write my own. I setup the basic project structure, setup window, made the player sprite and loaded him into the game. Also, I added the letter feature, where the player can interact with a letter entity and it’ll display some text on scree, its for telling the story, kinda. I still have to polish this part a lot and since I’m writing from scratch with no game engine and I’m new to C++ and SFML, it’s taking some time to get through stuff.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2024-01-04&quot;&gt;2024-01-04&lt;&#x2F;h2&gt;
+&lt;p&gt;I been learning to use SFML, but here is a problem I found. The way people usually setup game dev projects, is using Visual Studio on windows. I move a lot between OSes cause I use two different devices, one with windows and one with linux. Also, I don’t like the way Visual studio works or the way projects are setup and structured on it. So, I decided to write a template for structuring cpp projects and I did it. Now, I can easily move b&#x2F;w OSes and work the way I’m used to working.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2024-01-03&quot;&gt;2024-01-03&lt;&#x2F;h2&gt;
+&lt;p&gt;I wanted to learn C++ properly and get good at it. So, I decided to work on some projects. But, I was confused about what kind of projects I wanna work on and finally, I decided to write games. I looked into it, and started looking into &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.sfml-dev.org&#x2F;&quot;&gt;SFML&lt;&#x2F;a&gt;. Also, since I never did anything related to Graphics much, It seemed kinda daunting. But, I kinda got the hang of it, after following some tutorials and docs.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Personal journal</title>
+        <published>2023-12-20T00:00:00+00:00</published>
+        <updated>2023-12-20T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://virajsazzala.dev/entries/" type="text/html"/>
+        <id>https://virajsazzala.dev/entries/</id>
+        
+        <content type="html">&lt;h2 id=&quot;2023-12-20&quot;&gt;2023-12-20&lt;&#x2F;h2&gt;
+&lt;p&gt;I was staring at my monitor today, and I wanted to open youtube to watch a video and I didn’t want to type on my keyboard. So, I wondered, if I can do something about this. I thought about it and wondered &lt;em&gt;“what if i could develop a system where I can just type by looking at my screen?”&lt;&#x2F;em&gt;. After putting some thought into it, I thought I could use &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Morse_code&quot;&gt;morse code&lt;&#x2F;a&gt;, that way I can just type by blinking. Maybe I can write something up to do this. Idk, maybe there is a better way to do it, we’ll see.&lt;&#x2F;p&gt;
+&lt;!-- &lt;div class=&quot;textCenter&quot;&gt;
+  &lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;uploads-ssl.webflow.com&amp;#x2F;5ff0b3326e5782a256714165&amp;#x2F;638b6f3a3d8d2e6bad1cb03b_Random22.1.jpg&quot; alt=&quot;xfx6800xt&quot;&gt;
+  
+&lt;&#x2F;div&gt; --&gt;</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Endless Perspectives</title>
         <published>2023-11-12T00:00:00+00:00</published>
@@ -33,24 +72,6 @@
 &lt;p&gt;Hence, don’t get stuck in this bubble, get out, be better, happier. Read because you want to, not because you see a book on someone’s story. Study because you are interested, not because others are doing it. Listen to music because you love it, not because some artist is popular. Love because you felt it, not because you need it. Smile because it comes on your face, not because you have to pose for a picture. Live your life, in a peaceful way.&lt;&#x2F;p&gt;
 &lt;p&gt;In the end, &lt;u&gt;it might be lonely living this way, but it’ll be peaceful and pretty&lt;&#x2F;u&gt;. Choose authenticity over conformity, genuine experiences over curated moments, and your own passions over societal expectations. Embrace the beauty of living for yourself, not for the perceptions of others.&lt;&#x2F;p&gt;
 </content>
-        
-    </entry>
-    <entry xml:lang="en">
-        <title>Personal journal</title>
-        <published>2019-10-05T00:00:00+00:00</published>
-        <updated>2019-10-05T00:00:00+00:00</updated>
-        <author>
-          <name>Unknown</name>
-        </author>
-        <link rel="alternate" href="https://virajsazzala.dev/entries/" type="text/html"/>
-        <id>https://virajsazzala.dev/entries/</id>
-        
-        <content type="html">&lt;h2 id=&quot;2023-12-20&quot;&gt;2023-12-20&lt;&#x2F;h2&gt;
-&lt;p&gt;I was staring at my monitor today, and I wanted to open youtube to watch a video and I didn’t want to type on my keyboard. So, I wondered, if I can do something about this. I thought about it and wondered &lt;em&gt;“what if i could develop a system where I can just type by looking at my screen?”&lt;&#x2F;em&gt;. After putting some thought into it, I thought I could use &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Morse_code&quot;&gt;morse code&lt;&#x2F;a&gt;, that way I can just type by blinking. Maybe I can write something up to do this. Idk, maybe there is a better way to do it, we’ll see.&lt;&#x2F;p&gt;
-&lt;!-- &lt;div class=&quot;textCenter&quot;&gt;
-  &lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;uploads-ssl.webflow.com&amp;#x2F;5ff0b3326e5782a256714165&amp;#x2F;638b6f3a3d8d2e6bad1cb03b_Random22.1.jpg&quot; alt=&quot;xfx6800xt&quot;&gt;
-  
-&lt;&#x2F;div&gt; --&gt;</content>
         
     </entry>
 </feed>

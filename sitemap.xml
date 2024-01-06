@@ -20,8 +20,12 @@
         <loc>https://virajsazzala.dev/blog/page/1/</loc>
     </url>
     <url>
+        <loc>https://virajsazzala.dev/devlogs/</loc>
+        <lastmod>2023-12-20</lastmod>
+    </url>
+    <url>
         <loc>https://virajsazzala.dev/entries/</loc>
-        <lastmod>2019-10-05</lastmod>
+        <lastmod>2023-12-20</lastmod>
     </url>
     <url>
         <loc>https://virajsazzala.dev/tags/</loc>
