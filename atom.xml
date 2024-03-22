@@ -2,8 +2,8 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <title></title>
     <subtitle>Viraj Sazzala&#x27;s personal website</subtitle>
-    <link href="https://virajsazzala.dev/atom.xml" rel="self" type="application/atom+xml"/>
-    <link href="https://virajsazzala.dev"/>
+    <link rel="self" type="application/atom+xml" href="https://virajsazzala.dev/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://virajsazzala.dev"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
     <updated>2023-12-20T00:00:00+00:00</updated>
     <id>https://virajsazzala.dev/atom.xml</id>
@@ -11,52 +11,46 @@
         <title>Devlogs</title>
         <published>2023-12-20T00:00:00+00:00</published>
         <updated>2023-12-20T00:00:00+00:00</updated>
+        
         <author>
-          <name>Unknown</name>
+          <name>
+            
+              Unknown
+            
+          </name>
         </author>
-        <link rel="alternate" href="https://virajsazzala.dev/devlogs/" type="text/html"/>
+        
+        <link rel="alternate" type="text/html" href="https://virajsazzala.dev/devlogs/"/>
         <id>https://virajsazzala.dev/devlogs/</id>
         
-        <content type="html">&lt;h2 id=&quot;2024-01-06&quot;&gt;2024-01-06&lt;&#x2F;h2&gt;
-&lt;p&gt;Today, I decided to write to work a bit on the world. So, I divided my world into sections, and each section has it’s own entities, and when the player enters a section, the camera move and shows that individual section. It feels much better than making the camera follow the player. Now, I’ll add entities to the section, so time to make more sprites ig. Also, for now, I named the game “Trapped”.&lt;&#x2F;p&gt;
-&lt;h2 id=&quot;2024-01-05&quot;&gt;2024-01-05&lt;&#x2F;h2&gt;
-&lt;p&gt;I wrote some basic scripts, like one that generates mazes given a maze blueprint as a file input, a simple platformer game, etc.. But, I’ve been getting a bit bored, and I always had this idea to make my own game, something like &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Faith:_The_Unholy_Trinity&quot;&gt;Faith: The unholy trinity&lt;&#x2F;a&gt;. I love the 8-bit style graphics and the eerie vibe. So, I decided to write my own. I setup the basic project structure, setup window, made the player sprite and loaded him into the game. Also, I added the letter feature, where the player can interact with a letter entity and it’ll display some text on scree, its for telling the story, kinda. I still have to polish this part a lot and since I’m writing from scratch with no game engine and I’m new to C++ and SFML, it’s taking some time to get through stuff.&lt;&#x2F;p&gt;
+        <content type="html" xml:base="https://virajsazzala.dev/devlogs/">&lt;h2 id=&quot;2024-03-23&quot;&gt;2024-03-23&lt;&#x2F;h2&gt;
+&lt;p&gt;I’ve started leetcoding a bit again, and it’s been quite sometime. I’ve noticed that most problems are getting much more easier to understand and solve, might actually keep up the pace and make it a habit. I’ve also been studying deep learning a bit, found some good resources.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2024-01-06&quot;&gt;2024-01-06&lt;&#x2F;h2&gt;
+&lt;p&gt;Today, I decided to write to work a bit on the world (I’m making a small game). So, I divided my world into sections, and each section has it’s own entities, and when the player enters a section, the camera move and shows that individual section. It feels much better than making the camera follow the player. Now, I’ll add entities to the section, so time to make more sprites ig. Also, for now, I named the game “Trapped”.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;2024-01-04&quot;&gt;2024-01-04&lt;&#x2F;h2&gt;
 &lt;p&gt;I been learning to use SFML, but here is a problem I found. The way people usually setup game dev projects, is using Visual Studio on windows. I move a lot between OSes cause I use two different devices, one with windows and one with linux. Also, I don’t like the way Visual studio works or the way projects are setup and structured on it. So, I decided to write a template for structuring cpp projects and I did it. Now, I can easily move b&#x2F;w OSes and work the way I’m used to working.&lt;&#x2F;p&gt;
-&lt;h2 id=&quot;2024-01-03&quot;&gt;2024-01-03&lt;&#x2F;h2&gt;
-&lt;p&gt;I wanted to learn C++ properly and get good at it. So, I decided to work on some projects. But, I was confused about what kind of projects I wanna work on and finally, I decided to write games. I looked into it, and started looking into &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;www.sfml-dev.org&#x2F;&quot;&gt;SFML&lt;&#x2F;a&gt;. Also, since I never did anything related to Graphics much, It seemed kinda daunting. But, I kinda got the hang of it, after following some tutorials and docs.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2024-01-01&quot;&gt;2024-01-01&lt;&#x2F;h2&gt;
+&lt;p&gt;I’ve decided to make a page to throw random thoughts whenever I feel like it. Some updates on what I’m working on, new things I’ve explored, etc..&lt;&#x2F;p&gt;
 </content>
-        
-    </entry>
-    <entry xml:lang="en">
-        <title>Personal journal</title>
-        <published>2023-12-20T00:00:00+00:00</published>
-        <updated>2023-12-20T00:00:00+00:00</updated>
-        <author>
-          <name>Unknown</name>
-        </author>
-        <link rel="alternate" href="https://virajsazzala.dev/entries/" type="text/html"/>
-        <id>https://virajsazzala.dev/entries/</id>
-        
-        <content type="html">&lt;h2 id=&quot;2023-12-20&quot;&gt;2023-12-20&lt;&#x2F;h2&gt;
-&lt;p&gt;I was staring at my monitor today, and I wanted to open youtube to watch a video and I didn’t want to type on my keyboard. So, I wondered, if I can do something about this. I thought about it and wondered &lt;em&gt;“what if i could develop a system where I can just type by looking at my screen?”&lt;&#x2F;em&gt;. After putting some thought into it, I thought I could use &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Morse_code&quot;&gt;morse code&lt;&#x2F;a&gt;, that way I can just type by blinking. Maybe I can write something up to do this. Idk, maybe there is a better way to do it, we’ll see.&lt;&#x2F;p&gt;
-&lt;!-- &lt;div class=&quot;textCenter&quot;&gt;
-  &lt;img src=&quot;https:&amp;#x2F;&amp;#x2F;uploads-ssl.webflow.com&amp;#x2F;5ff0b3326e5782a256714165&amp;#x2F;638b6f3a3d8d2e6bad1cb03b_Random22.1.jpg&quot; alt=&quot;xfx6800xt&quot;&gt;
-  
-&lt;&#x2F;div&gt; --&gt;</content>
         
     </entry>
     <entry xml:lang="en">
         <title>Endless Perspectives</title>
         <published>2023-11-12T00:00:00+00:00</published>
         <updated>2023-11-12T00:00:00+00:00</updated>
+        
         <author>
-          <name>Unknown</name>
+          <name>
+            
+              Unknown
+            
+          </name>
         </author>
-        <link rel="alternate" href="https://virajsazzala.dev/blog/endless-perspectives/" type="text/html"/>
+        
+        <link rel="alternate" type="text/html" href="https://virajsazzala.dev/blog/endless-perspectives/"/>
         <id>https://virajsazzala.dev/blog/endless-perspectives/</id>
         
-        <content type="html">&lt;h2 id=&quot;overview&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;virajsazzala.dev&#x2F;blog&#x2F;endless-perspectives&#x2F;#overview&quot;&gt;Overview&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+        <content type="html" xml:base="https://virajsazzala.dev/blog/endless-perspectives/">&lt;h2 id=&quot;overview&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;virajsazzala.dev&#x2F;blog&#x2F;endless-perspectives&#x2F;#overview&quot;&gt;Overview&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
 &lt;p&gt;In a world teeming with billions, the notion that each person sees just one version of you doesn’t quite fit, does it? Think about your day: encounters with countless individuals, from the bus driver, to the friends you cherish, each painting a different picture of who they believe you are. It’s as if everyone carries their own unique pair of glasses, shaping their distinct viewpoint of you.&lt;&#x2F;p&gt;
 &lt;p&gt;There’s a tendency to tune into these perceptions, to align ourselves with how others see us. We might tweak our personalities, adjust our actions, all to harmonize with the multifaceted reflections of ourselves mirrored in the opinions of others. But in this intricate dance, it’s easy to lose sight of our authentic selves, our true essence, buried beneath the amalgamation of varied perceptions.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;let-s-understand-this&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;virajsazzala.dev&#x2F;blog&#x2F;endless-perspectives&#x2F;#divedeeper&quot;&gt;Let’s understand this&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;

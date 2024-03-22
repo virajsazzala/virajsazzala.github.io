@@ -2,8 +2,8 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <title> - philosophy</title>
     <subtitle>Viraj Sazzala&#x27;s personal website</subtitle>
-    <link href="https://virajsazzala.dev/tags/philosophy/atom.xml" rel="self" type="application/atom+xml"/>
-    <link href="https://virajsazzala.dev"/>
+    <link rel="self" type="application/atom+xml" href="https://virajsazzala.dev/tags/philosophy/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://virajsazzala.dev"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
     <updated>2023-11-12T00:00:00+00:00</updated>
     <id>https://virajsazzala.dev/tags/philosophy/atom.xml</id>
@@ -11,13 +11,19 @@
         <title>Endless Perspectives</title>
         <published>2023-11-12T00:00:00+00:00</published>
         <updated>2023-11-12T00:00:00+00:00</updated>
+        
         <author>
-          <name>Unknown</name>
+          <name>
+            
+              Unknown
+            
+          </name>
         </author>
-        <link rel="alternate" href="https://virajsazzala.dev/blog/endless-perspectives/" type="text/html"/>
+        
+        <link rel="alternate" type="text/html" href="https://virajsazzala.dev/blog/endless-perspectives/"/>
         <id>https://virajsazzala.dev/blog/endless-perspectives/</id>
         
-        <content type="html">&lt;h2 id=&quot;overview&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;virajsazzala.dev&#x2F;blog&#x2F;endless-perspectives&#x2F;#overview&quot;&gt;Overview&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+        <content type="html" xml:base="https://virajsazzala.dev/blog/endless-perspectives/">&lt;h2 id=&quot;overview&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;virajsazzala.dev&#x2F;blog&#x2F;endless-perspectives&#x2F;#overview&quot;&gt;Overview&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
 &lt;p&gt;In a world teeming with billions, the notion that each person sees just one version of you doesn’t quite fit, does it? Think about your day: encounters with countless individuals, from the bus driver, to the friends you cherish, each painting a different picture of who they believe you are. It’s as if everyone carries their own unique pair of glasses, shaping their distinct viewpoint of you.&lt;&#x2F;p&gt;
 &lt;p&gt;There’s a tendency to tune into these perceptions, to align ourselves with how others see us. We might tweak our personalities, adjust our actions, all to harmonize with the multifaceted reflections of ourselves mirrored in the opinions of others. But in this intricate dance, it’s easy to lose sight of our authentic selves, our true essence, buried beneath the amalgamation of varied perceptions.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;let-s-understand-this&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;virajsazzala.dev&#x2F;blog&#x2F;endless-perspectives&#x2F;#divedeeper&quot;&gt;Let’s understand this&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
