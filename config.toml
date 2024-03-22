@@ -39,6 +39,6 @@ header_nav = [
   { url = "/", name_en = "home" },
   { url = "/about", name_en = "about" },
   { url = "/devlogs", name_en = "devlogs" },
-  { url = "/entries", name_en = "entries" },
   { url = "/blog", name_en = "blog" },
+  { url = "/viraj-resume.pdf", name_en = "resume" }
 ]

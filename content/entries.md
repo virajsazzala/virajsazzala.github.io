@@ -1,7 +1,7 @@
 +++
 title = "Personal journal"
 date = 2023-12-20
-draft = false
+draft = true
 +++
 
 ## 2023-12-20
