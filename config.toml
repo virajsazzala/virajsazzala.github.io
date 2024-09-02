@@ -2,7 +2,7 @@ base_url = "https://virajsazzala.dev"
 description = "Viraj Sazzala's personal website"
 compile_sass = false
 minify_html = true
-generate_feed = true
+generate_feeds = true
 default_language = "en"
 
 taxonomies = [
@@ -38,7 +38,7 @@ twitter_card = false
 header_nav = [
   { url = "/", name_en = "home" },
   { url = "/about", name_en = "about" },
-  { url = "/devlogs", name_en = "devlogs" },
+  { url = "/posts", name_en = "posts" },
   { url = "/blog", name_en = "blog" },
-  { url = "/viraj-resume.pdf", name_en = "resume" }
+#  { url = "/viraj-resume.pdf", name_en = "resume" }
 ]
