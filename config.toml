@@ -38,7 +38,7 @@ twitter_card = false
 header_nav = [
   { url = "/", name_en = "home" },
   { url = "/about", name_en = "about" },
-  { url = "/posts", name_en = "posts" },
+#  { url = "/posts", name_en = "posts" },
   { url = "/blog", name_en = "blog" },
 #  { url = "/viraj-resume.pdf", name_en = "resume" }
 ]
