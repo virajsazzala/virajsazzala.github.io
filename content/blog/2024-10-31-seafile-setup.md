@@ -1,5 +1,5 @@
 +++
-title = "Ditching Gdrive for Seafile"
+title = "Seafile: OSS File Sync & Share"
 date = 2024-10-31
 
 [taxonomies]
