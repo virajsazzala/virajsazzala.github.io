@@ -41,5 +41,5 @@ header_nav = [
 #  { url = "/posts", name_en = "posts" },
   { url = "/blog", name_en = "blog" },
   { url = "/recs", name_en = "recs" },
-#  { url = "/viraj-resume.pdf", name_en = "resume" }
+  { url = "/viraj-resume.pdf", name_en = "resume" },
 ]
