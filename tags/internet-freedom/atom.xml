@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title> - internet-freedom</title>
+    <subtitle>Viraj Sazzala&#x27;s personal website</subtitle>
+    <link href="https://virajsazzala.xyz/tags/internet-freedom/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://virajsazzala.xyz"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-10-31T00:00:00+00:00</updated>
+    <id>https://virajsazzala.xyz/tags/internet-freedom/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Seafile: OSS File Sync &amp; Share</title>
+        <published>2024-10-31T00:00:00+00:00</published>
+        <updated>2024-10-31T00:00:00+00:00</updated>
+        <author>
+          <name>Unknown</name>
+        </author>
+        <link rel="alternate" href="https://virajsazzala.xyz/blog/seafile-setup/" type="text/html"/>
+        <id>https://virajsazzala.xyz/blog/seafile-setup/</id>
+        
+        <content type="html">&lt;h2 id=&quot;overview&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;virajsazzala.xyz&#x2F;blog&#x2F;seafile-setup&#x2F;#overview&quot;&gt;Overview&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;I’ve always used cloud storage apps like Google Drive, Dropbox, etc. because it was always a hassle to work with documents and other files on-the-go. It was simple and convienient. But, eventually it kept getting annoying realising that now all these documents can now be accessed by some other company, and they aren’t completely under my control. It felt like freedom was being traded for convienence. &lt;&#x2F;p&gt;
+&lt;p&gt;So, Recently I spent sometime looking for alternatives and I found a few like NextCloud, Syncthing, OwnCloud, SeaFile, etc.. I’ve read about and tested a few of these. &lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Syncthing&lt;&#x2F;em&gt;: It’s good, It works, and has good features for syncing files, but not really what I needed.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;NextCloud&lt;&#x2F;em&gt;: It was a bit too much to setup, but It comes with a lot of features that can be installed. But, It was too many features I wouldn’t use.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;SeaFile&lt;&#x2F;em&gt;: It is simple, really easy to setup with docker and I chose to use this.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Before learning to setup, Here are the Specs of the VPS, I tested this on:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;RAM&lt;&#x2F;em&gt;: 1GB&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;STORAGE&lt;&#x2F;em&gt; 25GB SSD&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;CPU&lt;&#x2F;em&gt;: Intel Xeon (Cascadelake) (1) @ 2.992GHz (1vCPU)&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;OS&lt;&#x2F;em&gt;: Debian 12 x64&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;a-simple-setup&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;virajsazzala.xyz&#x2F;blog&#x2F;seafile-setup&#x2F;#setup&quot;&gt;A Simple Setup&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;A simple SeaFile setup with Docker Compose…&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;NOTE:&lt;&#x2F;em&gt;&lt;&#x2F;strong&gt; Make sure you have a “&lt;em&gt;seafile.example.com&lt;&#x2F;em&gt;” subdomain pointing to your VPS.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;Install and setup Docker&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Prerequistes
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -y
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Docker GPG Key
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;curl -fsSL&lt;&#x2F;span&gt;&lt;span&gt; https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;$(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;awk -F&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39; &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;^ID=&#x2F;{ print $NF }&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39; &#x2F;etc&#x2F;os-release)&#x2F;gpg | &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; apt-key add -
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Add Docker software repository
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; add-apt-repository &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;deb [arch=&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;dpkg --print-architecture&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;)] https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;awk -F&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39; &amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;^ID=&#x2F;{ print $NF }&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt; &#x2F;etc&#x2F;os-release) &lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;lsb_release -cs&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;) stable&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Install Docker
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; apt install docker-ce docker-compose containerd.io&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -y
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Start Docker Service
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; systemctl enable docker &amp;amp;&amp;amp; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; systemctl start docker
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Add User to Docker group
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; usermod&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -aG&lt;&#x2F;span&gt;&lt;span&gt; docker $&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;USER &lt;&#x2F;span&gt;&lt;span&gt;&amp;amp;&amp;amp; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;su&lt;&#x2F;span&gt;&lt;span&gt; - $&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;USER
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Setting Up Seafile&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Create Seafile Directory
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;mkdir&lt;&#x2F;span&gt;&lt;span&gt; &#x2F;opt&#x2F;seafile
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;cd&lt;&#x2F;span&gt;&lt;span&gt; &#x2F;opt&#x2F;seafile
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Get Seafile `docker-compose.yml` file (Seafile CE 11.0)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;wget -O &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;docker-compose.yml&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;https:&#x2F;&#x2F;manual.seafile.com&#x2F;11.0&#x2F;docker&#x2F;docker-compose&#x2F;ce&#x2F;11.0&#x2F;docker-compose.yml&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;Edit Seafile &lt;code&gt;docker-compose.yml&lt;&#x2F;code&gt; file&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Make sure to update these variables in the file:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;MYSQL_ROOT_PASSWORD&lt;&#x2F;li&gt;
+&lt;li&gt;DB_ROOT_PASSWD&lt;&#x2F;li&gt;
+&lt;li&gt;SEAFILE_ADMIN_EMAIL&lt;&#x2F;li&gt;
+&lt;li&gt;SEAFILE_ADMIN_PASSWORD&lt;&#x2F;li&gt;
+&lt;li&gt;SEAFILE_SERVER_HOSTNAME&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Rest can be left to defaults or changed as shown below. I’ve made a few adjustments to memory due to memory limitations. Hence, change as required.&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;services:
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;db:
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;image:&lt;&#x2F;span&gt;&lt;span&gt; mariadb:10.11
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;container_name:&lt;&#x2F;span&gt;&lt;span&gt; seafile-mysql
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;environment:
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt; MYSQL_ROOT_PASSWORD=YOUR_DB_PASS_HERE  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Set the root&amp;#39;s password of MySQL service.
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt; MYSQL_LOG_CONSOLE=true
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt; MARIADB_AUTO_UPGRADE=1
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;volumes:
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt; &#x2F;opt&#x2F;seafile-mysql&#x2F;db:&#x2F;var&#x2F;lib&#x2F;mysql  
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;networks:
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt; seafile-net
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;deploy:
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;resources:
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;limits:
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;memory:&lt;&#x2F;span&gt;&lt;span&gt; 128M  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Update based on your memory limit
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;memcached:
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;image:&lt;&#x2F;span&gt;&lt;span&gt; memcached:1.6.18
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;container_name:&lt;&#x2F;span&gt;&lt;span&gt; seafile-memcached
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;entrypoint:&lt;&#x2F;span&gt;&lt;span&gt; memcached&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -m&lt;&#x2F;span&gt;&lt;span&gt; 64  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Leave default, Set to 64 if you have low RAM
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;networks:
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt; seafile-net
+&lt;&#x2F;span&gt;&lt;span&gt;          
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;seafile:
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;image:&lt;&#x2F;span&gt;&lt;span&gt; seafileltd&#x2F;seafile-mc:11.0-latest
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;container_name:&lt;&#x2F;span&gt;&lt;span&gt; seafile
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ports:
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;- &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;80:80&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;- &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;443:443&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Comment Out if you don&amp;#39;t require HTTPS (better to have HTTPS)
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;volumes:
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt; &#x2F;opt&#x2F;seafile-data:&#x2F;shared   
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;environment:
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt; DB_HOST=db
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt; DB_ROOT_PASSWD=YOUR_DB_PASS_HERE  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Should be root&amp;#39;s password of MySQL service.
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt; TIME_ZONE=Etc&#x2F;UTC  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Optional, default is UTC. 
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt; SEAFILE_ADMIN_EMAIL=YOUR_EMAIL_HERE  
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt; SEAFILE_ADMIN_PASSWORD=YOUR_SEAFILE_PASS_HERE  
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt; SEAFILE_SERVER_LETSENCRYPT=true   &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Use HTTPS or not
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt; SEAFILE_SERVER_HOSTNAME=seafile.example.com &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Specifies your host name if https 
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;depends_on:
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt; db
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt; memcached
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;networks:
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-&lt;&#x2F;span&gt;&lt;span&gt; seafile-net
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;deploy:
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;resources:
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;limits:
+&lt;&#x2F;span&gt;&lt;span&gt;          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;memory:&lt;&#x2F;span&gt;&lt;span&gt; 256M  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# Increase if you have more memory 
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;networks:
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;seafile-net:
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;Running Seafile Server&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# if `docker-compose.yml` file is in current directory
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;docker&lt;&#x2F;span&gt;&lt;span&gt; compose up&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -d
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# if `docker-compose.yml` file is elsewhere
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;docker&lt;&#x2F;span&gt;&lt;span&gt; compose&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -f&lt;&#x2F;span&gt;&lt;span&gt; &#x2F;path&#x2F;to&#x2F;docker-compose.yml up&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -d
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;Stats Check&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# To check running containers
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;docker&lt;&#x2F;span&gt;&lt;span&gt; ps
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# To check stats of containers
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;docker&lt;&#x2F;span&gt;&lt;span&gt; stats
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;You can now tweak the memory limits based on stats.&lt;&#x2F;p&gt;
+&lt;p&gt;you can refer to &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;manual.seafile.com&#x2F;11.0&#x2F;docker&#x2F;deploy_seafile_with_docker&#x2F;&quot;&gt;Seafile Manual&lt;&#x2F;a&gt; for more information.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;post-setup-and-conclusion&quot;&gt;&lt;a href=&quot;https:&#x2F;&#x2F;virajsazzala.xyz&#x2F;blog&#x2F;seafile-setup&#x2F;#postsetup&quot;&gt;Post Setup and Conclusion&lt;&#x2F;a&gt;&lt;&#x2F;h2&gt;
+&lt;p&gt;In this article, we went through a simple Seafile Setup on a VPS. &lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;You can access Seafile at &lt;em&gt;https:&#x2F;&#x2F;seafile.example.com&lt;&#x2F;em&gt;. &lt;&#x2F;li&gt;
+&lt;li&gt;You can Login with SEAFILE_ADMIN_EMAIL and SEAFILE_ADMIN_PASSWORD from the &lt;code&gt;docker-compose.yml&lt;&#x2F;code&gt; file.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;After Login, You can:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Customize the frontend of Seafile.&lt;&#x2F;li&gt;
+&lt;li&gt;Use it to store, edit and do other operations with files.&lt;&#x2F;li&gt;
+&lt;li&gt;Download the Mobile app and connect to the same account.&lt;&#x2F;li&gt;
+&lt;li&gt;And many more!&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;That’s it, Bye!&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

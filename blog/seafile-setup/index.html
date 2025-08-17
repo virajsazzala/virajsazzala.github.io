@@ -1,0 +1,86 @@
+<!doctype html><html lang=en><head><meta charset=UTF-8><meta content="IE=edge" http-equiv=X-UA-Compatible><meta content="text/html; charset=UTF-8" http-equiv=content-type><meta content="width=device-width,initial-scale=1,user-scalable=no" name=viewport><meta content="index, follow" name=robots><title>Seafile: OSS File Sync & Share</title><meta content="Seafile: OSS File Sync & Share" name=title><meta content=Viraj name=author><meta content="Viraj Sazzala's personal website" name=description><meta content=website property=og:type><meta content=https://virajsazzala.xyz/blog/seafile-setup/ property=og:url><meta property=og:site_name><meta content="Seafile: OSS File Sync & Share" property=og:title><meta content="Viraj Sazzala's personal website" property=og:description><meta content=https://virajsazzala.xyz/favicon.ico property=og:image><link href=https://virajsazzala.xyz/blog/seafile-setup/ rel=canonical><link rel="shortcut icon" href=https://virajsazzala.xyz/favicon.ico type=image/x-icon><link href=https://virajsazzala.xyz/css/style.css rel=stylesheet><script defer src=https://virajsazzala.xyz/js/script.js></script><body><div class=wrapper><header><nav class=navBar><a href=/> home </a><a href=/about> about </a><a href=/blog> blog </a><a href=/recs> recs </a><a href=/viraj-resume.pdf> resume </a><div class=themeSwitch><button class="themeButton dark" onclick="setTheme('dark')" title="Dark mode"><svg class="icons icons__background"><use href=https://virajsazzala.xyz/icons.svg#darkMode></use></svg></button><button class="themeButton light" onclick="setTheme('light')" title="Light mode"><svg class="icons icons__background"><use href=https://virajsazzala.xyz/icons.svg#lightMode></use></svg></button></div></nav></header><main><div><a href=..>..</a>/<span class=metaData>seafile-setup</span></div><time datetime=2024-10-31>Published on: <span class=metaData>2024-10-31</span></time><h1>Seafile: OSS File Sync & Share</h1><h2>Table of contents</h2><ul><li><a href=https://virajsazzala.xyz/blog/seafile-setup/#overview>Overview</a><li><a href=https://virajsazzala.xyz/blog/seafile-setup/#a-simple-setup>A Simple Setup</a><li><a href=https://virajsazzala.xyz/blog/seafile-setup/#post-setup-and-conclusion>Post Setup and Conclusion</a></ul><h2 id=overview><a href=https://virajsazzala.xyz/blog/seafile-setup/#overview>Overview</a></h2><p>I’ve always used cloud storage apps like Google Drive, Dropbox, etc. because it was always a hassle to work with documents and other files on-the-go. It was simple and convienient. But, eventually it kept getting annoying realising that now all these documents can now be accessed by some other company, and they aren’t completely under my control. It felt like freedom was being traded for convienence.<p>So, Recently I spent sometime looking for alternatives and I found a few like NextCloud, Syncthing, OwnCloud, SeaFile, etc.. I’ve read about and tested a few of these.<ul><li><em>Syncthing</em>: It’s good, It works, and has good features for syncing files, but not really what I needed.<li><em>NextCloud</em>: It was a bit too much to setup, but It comes with a lot of features that can be installed. But, It was too many features I wouldn’t use.<li><em>SeaFile</em>: It is simple, really easy to setup with docker and I chose to use this.</ul><p>Before learning to setup, Here are the Specs of the VPS, I tested this on:<ul><li><em>RAM</em>: 1GB<li><em>STORAGE</em> 25GB SSD<li><em>CPU</em>: Intel Xeon (Cascadelake) (1) @ 2.992GHz (1vCPU)<li><em>OS</em>: Debian 12 x64</ul><h2 id=a-simple-setup><a href=https://virajsazzala.xyz/blog/seafile-setup/#setup>A Simple Setup</a></h2><p>A simple SeaFile setup with Docker Compose…<blockquote><p><strong><em>NOTE:</em></strong> Make sure you have a “<em>seafile.example.com</em>” subdomain pointing to your VPS.</blockquote><ol><li>Install and setup Docker</ol><pre class=language-sh data-lang=sh style=background:#2b303b;color:#c0c5ce><code class=language-sh data-lang=sh><span style=color:#65737e># Prerequistes
+</span><span style=color:#bf616a>sudo</span><span> apt install apt-transport-https ca-certificates curl software-properties-common gnupg-agent</span><span style=color:#bf616a> -y
+</span><span>
+</span><span style=color:#65737e># Docker GPG Key
+</span><span style=color:#bf616a>curl -fsSL</span><span> https://download.docker.com/linux/$(</span><span style=color:#bf616a>awk -F</span><span>'</span><span style=color:#a3be8c>=</span><span>' '</span><span style=color:#a3be8c>/^ID=/{ print $NF }</span><span>' /etc/os-release)/gpg | </span><span style=color:#bf616a>sudo</span><span> apt-key add -
+</span><span>
+</span><span style=color:#65737e># Add Docker software repository
+</span><span style=color:#bf616a>sudo</span><span> add-apt-repository "</span><span style=color:#a3be8c>deb [arch=</span><span>$</span><span style=color:#a3be8c>(</span><span style=color:#bf616a>dpkg --print-architecture</span><span style=color:#a3be8c>)] https://download.docker.com/linux/</span><span>$</span><span style=color:#a3be8c>(</span><span style=color:#bf616a>awk -F</span><span>'</span><span style=color:#a3be8c>=</span><span>' '</span><span style=color:#a3be8c>/^ID=/{ print $NF }</span><span>'</span><span style=color:#a3be8c> /etc/os-release) </span><span>$</span><span style=color:#a3be8c>(</span><span style=color:#bf616a>lsb_release -cs</span><span style=color:#a3be8c>) stable</span><span>"
+</span><span>
+</span><span style=color:#65737e># Install Docker
+</span><span style=color:#bf616a>sudo</span><span> apt install docker-ce docker-compose containerd.io</span><span style=color:#bf616a> -y
+</span><span>
+</span><span style=color:#65737e># Start Docker Service
+</span><span style=color:#bf616a>sudo</span><span> systemctl enable docker && </span><span style=color:#bf616a>sudo</span><span> systemctl start docker
+</span><span>
+</span><span style=color:#65737e># Add User to Docker group
+</span><span style=color:#bf616a>sudo</span><span> usermod</span><span style=color:#bf616a> -aG</span><span> docker $</span><span style=color:#bf616a>USER </span><span>&& </span><span style=color:#bf616a>su</span><span> - $</span><span style=color:#bf616a>USER
+</span></code></pre><ol start=2><li>Setting Up Seafile</ol><pre class=language-sh data-lang=sh style=background:#2b303b;color:#c0c5ce><code class=language-sh data-lang=sh><span style=color:#65737e># Create Seafile Directory
+</span><span style=color:#bf616a>mkdir</span><span> /opt/seafile
+</span><span style=color:#96b5b4>cd</span><span> /opt/seafile
+</span><span>
+</span><span style=color:#65737e># Get Seafile `docker-compose.yml` file (Seafile CE 11.0)
+</span><span style=color:#bf616a>wget -O </span><span>"</span><span style=color:#a3be8c>docker-compose.yml</span><span>" "</span><span style=color:#a3be8c>https://manual.seafile.com/11.0/docker/docker-compose/ce/11.0/docker-compose.yml</span><span>"
+</span></code></pre><ol start=3><li>Edit Seafile <code>docker-compose.yml</code> file</ol><p>Make sure to update these variables in the file:<ul><li>MYSQL_ROOT_PASSWORD<li>DB_ROOT_PASSWD<li>SEAFILE_ADMIN_EMAIL<li>SEAFILE_ADMIN_PASSWORD<li>SEAFILE_SERVER_HOSTNAME</ul><p>Rest can be left to defaults or changed as shown below. I’ve made a few adjustments to memory due to memory limitations. Hence, change as required.<pre class=language-sh data-lang=sh style=background:#2b303b;color:#c0c5ce><code class=language-sh data-lang=sh><span style=color:#bf616a>services:
+</span><span>  </span><span style=color:#bf616a>db:
+</span><span>    </span><span style=color:#bf616a>image:</span><span> mariadb:10.11
+</span><span>    </span><span style=color:#bf616a>container_name:</span><span> seafile-mysql
+</span><span>    </span><span style=color:#bf616a>environment:
+</span><span>      </span><span style=color:#bf616a>-</span><span> MYSQL_ROOT_PASSWORD=YOUR_DB_PASS_HERE  </span><span style=color:#65737e># Set the root's password of MySQL service.
+</span><span>      </span><span style=color:#bf616a>-</span><span> MYSQL_LOG_CONSOLE=true
+</span><span>      </span><span style=color:#bf616a>-</span><span> MARIADB_AUTO_UPGRADE=1
+</span><span>    </span><span style=color:#bf616a>volumes:
+</span><span>      </span><span style=color:#bf616a>-</span><span> /opt/seafile-mysql/db:/var/lib/mysql  
+</span><span>    </span><span style=color:#bf616a>networks:
+</span><span>      </span><span style=color:#bf616a>-</span><span> seafile-net
+</span><span>    </span><span style=color:#bf616a>deploy:
+</span><span>      </span><span style=color:#bf616a>resources:
+</span><span>        </span><span style=color:#bf616a>limits:
+</span><span>          </span><span style=color:#bf616a>memory:</span><span> 128M  </span><span style=color:#65737e># Update based on your memory limit
+</span><span>
+</span><span>  </span><span style=color:#bf616a>memcached:
+</span><span>    </span><span style=color:#bf616a>image:</span><span> memcached:1.6.18
+</span><span>    </span><span style=color:#bf616a>container_name:</span><span> seafile-memcached
+</span><span>    </span><span style=color:#bf616a>entrypoint:</span><span> memcached</span><span style=color:#bf616a> -m</span><span> 64  </span><span style=color:#65737e># Leave default, Set to 64 if you have low RAM
+</span><span>    </span><span style=color:#bf616a>networks:
+</span><span>      </span><span style=color:#bf616a>-</span><span> seafile-net
+</span><span>          
+</span><span>  </span><span style=color:#bf616a>seafile:
+</span><span>    </span><span style=color:#bf616a>image:</span><span> seafileltd/seafile-mc:11.0-latest
+</span><span>    </span><span style=color:#bf616a>container_name:</span><span> seafile
+</span><span>    </span><span style=color:#bf616a>ports:
+</span><span>      </span><span style=color:#bf616a>- </span><span>"</span><span style=color:#a3be8c>80:80</span><span>"
+</span><span>      </span><span style=color:#bf616a>- </span><span>"</span><span style=color:#a3be8c>443:443</span><span>"  </span><span style=color:#65737e># Comment Out if you don't require HTTPS (better to have HTTPS)
+</span><span>    </span><span style=color:#bf616a>volumes:
+</span><span>      </span><span style=color:#bf616a>-</span><span> /opt/seafile-data:/shared   
+</span><span>    </span><span style=color:#bf616a>environment:
+</span><span>      </span><span style=color:#bf616a>-</span><span> DB_HOST=db
+</span><span>      </span><span style=color:#bf616a>-</span><span> DB_ROOT_PASSWD=YOUR_DB_PASS_HERE  </span><span style=color:#65737e># Should be root's password of MySQL service.
+</span><span>      </span><span style=color:#bf616a>-</span><span> TIME_ZONE=Etc/UTC  </span><span style=color:#65737e># Optional, default is UTC. 
+</span><span>      </span><span style=color:#bf616a>-</span><span> SEAFILE_ADMIN_EMAIL=YOUR_EMAIL_HERE  
+</span><span>      </span><span style=color:#bf616a>-</span><span> SEAFILE_ADMIN_PASSWORD=YOUR_SEAFILE_PASS_HERE  
+</span><span>      </span><span style=color:#bf616a>-</span><span> SEAFILE_SERVER_LETSENCRYPT=true   </span><span style=color:#65737e># Use HTTPS or not
+</span><span>      </span><span style=color:#bf616a>-</span><span> SEAFILE_SERVER_HOSTNAME=seafile.example.com </span><span style=color:#65737e># Specifies your host name if https 
+</span><span>    </span><span style=color:#bf616a>depends_on:
+</span><span>      </span><span style=color:#bf616a>-</span><span> db
+</span><span>      </span><span style=color:#bf616a>-</span><span> memcached
+</span><span>    </span><span style=color:#bf616a>networks:
+</span><span>      </span><span style=color:#bf616a>-</span><span> seafile-net
+</span><span>    </span><span style=color:#bf616a>deploy:
+</span><span>      </span><span style=color:#bf616a>resources:
+</span><span>        </span><span style=color:#bf616a>limits:
+</span><span>          </span><span style=color:#bf616a>memory:</span><span> 256M  </span><span style=color:#65737e># Increase if you have more memory 
+</span><span>
+</span><span style=color:#bf616a>networks:
+</span><span>  </span><span style=color:#bf616a>seafile-net:
+</span></code></pre><ol start=4><li>Running Seafile Server</ol><pre class=language-sh data-lang=sh style=background:#2b303b;color:#c0c5ce><code class=language-sh data-lang=sh><span style=color:#65737e># if `docker-compose.yml` file is in current directory
+</span><span style=color:#bf616a>docker</span><span> compose up</span><span style=color:#bf616a> -d
+</span><span>
+</span><span style=color:#65737e># if `docker-compose.yml` file is elsewhere
+</span><span style=color:#bf616a>docker</span><span> compose</span><span style=color:#bf616a> -f</span><span> /path/to/docker-compose.yml up</span><span style=color:#bf616a> -d
+</span></code></pre><ol start=5><li>Stats Check</ol><pre class=language-sh data-lang=sh style=background:#2b303b;color:#c0c5ce><code class=language-sh data-lang=sh><span style=color:#65737e># To check running containers
+</span><span style=color:#bf616a>docker</span><span> ps
+</span><span>
+</span><span style=color:#65737e># To check stats of containers
+</span><span style=color:#bf616a>docker</span><span> stats
+</span></code></pre><p>You can now tweak the memory limits based on stats.<p>you can refer to <a href=https://manual.seafile.com/11.0/docker/deploy_seafile_with_docker/ rel=noopener target=_blank>Seafile Manual</a> for more information.<h2 id=post-setup-and-conclusion><a href=https://virajsazzala.xyz/blog/seafile-setup/#postsetup>Post Setup and Conclusion</a></h2><p>In this article, we went through a simple Seafile Setup on a VPS.<ul><li>You can access Seafile at <em>https://seafile.example.com</em>.<li>You can Login with SEAFILE_ADMIN_EMAIL and SEAFILE_ADMIN_PASSWORD from the <code>docker-compose.yml</code> file.</ul><p>After Login, You can:<ul><li>Customize the frontend of Seafile.<li>Use it to store, edit and do other operations with files.<li>Download the Mobile app and connect to the same account.<li>And many more!</ul><p>That’s it, Bye!<p class=tagsData><a href=/tags/internet-freedom>/internet-freedom/</a> <a href=/tags/guide>/guide/</a></main><footer><hr><div class=footContainer><div class=footLeft><p>SNG Viraj Reddy © 2025</div></div></footer></div>
